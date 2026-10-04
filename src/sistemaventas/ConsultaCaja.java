@@ -15,9 +15,9 @@ public class ConsultaCaja {
         System.out.println("");
         System.out.println("");
         System.out.println("====RESUMEN ESTADISTICO====");
-        System.out.println("Total de productos vendidos: "+  RegistroVenta.productosVendidos);
-        System.out.println("Total de ventas realizadas: "+ RegistroVenta.ventasRealizadas);
-        System.out.println("Total vendido: " + RegistroVenta.totalVendido);
+        System.out.println("Total de productos vendidos  "+  RegistroVenta.productosVendidos);
+        System.out.println("Total de ventas realizadas  "+ RegistroVenta.ventasRealizadas);
+        System.out.println("Total vendido  Q" + RegistroVenta.totalVendido);
         System.out.println("Ventas en efectivo: "+ RegistroVenta.ventasEfectivo);
         System.out.println("Ventas en tarjeta: "+ RegistroVenta.ventasTarjeta);
         System.out.println("Ventas por transferencia: " + RegistroVenta.ventasTransferencia);

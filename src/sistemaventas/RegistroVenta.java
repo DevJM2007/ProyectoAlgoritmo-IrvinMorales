@@ -9,8 +9,10 @@ import java.util.Scanner;
  * @author Josue Morales
  */
 public class RegistroVenta {
+    
+    //Varaibles publicas disponibles otros archivos
     public static int ventasRealizadas = 0;
-    public static int productosVendidos = 0;   // total de unidades vendidas
+    public static int productosVendidos = 0;   
     public static double totalVendido = 0;
     public static int ventasEfectivo = 0;
     public static int ventasTarjeta = 0;
@@ -29,12 +31,13 @@ public class RegistroVenta {
         System.out.print("Cuantos productos tendra la compra? ");
         int cantidadProductos = jm.nextInt();
         
+        //condicion/bucle si inserta un numero <=0
         while (cantidadProductos <= 0) {
             System.out.print("Debe ser mayor que cero. Ingrese de nuevo: ");
             cantidadProductos = jm.nextInt();
         }
  
-        double subtotal = 0; // acumulador del subtotal de la venta
+        double subtotalgeneral = 0; // acumulador del subtotal de la venta
         int unidades = 0;    // acumulador de unidades de la venta
  
         // Ingreso de productos con ciclo for
@@ -67,29 +70,29 @@ public class RegistroVenta {
             }
  
             // Subtotal del producto = precio x cantidad (redondeado a 2 decimales)
-            double subtotalProducto = (int) (precio * cantidad * 100 + 0.5) / 100.0;
+            double subtotalProducto = (int) (precio * cantidad);
             System.out.println("Agregado: [" + codigo + "] " + nombre + " -> Subtotal del producto: Q" + subtotalProducto);
  
-            subtotal = subtotal + subtotalProducto;
+            subtotalgeneral = subtotalgeneral + subtotalProducto;
             unidades = unidades + cantidad;
         }
  
         // Descuento segun el subtotal
         double porcentaje;
-        if (subtotal >= 1000) {
+        if (subtotalgeneral >= 1000) {
             porcentaje = 0.10;
-        } else if (subtotal >= 500) {
+        } else if (subtotalgeneral >= 500) {
             porcentaje = 0.8;
-        } else if (subtotal >= 200) {
+        } else if (subtotalgeneral >= 200) {
             porcentaje = 0.5;
         } else {
             porcentaje = 0;
         }
  
-        double descuento = (subtotal * porcentaje);
-        double montoConDescuento = (int) (subtotal - descuento);
-        double iva = (int) (montoConDescuento * 0.12);
-        double total = (int) (montoConDescuento + iva);
+        double descuento = (subtotalgeneral * porcentaje);
+        double dineroConDescuento = (int) (subtotalgeneral - descuento);
+        double iva = (int) (dineroConDescuento * 0.12);
+        double total = (int) (dineroConDescuento + iva);
  
         System.out.println();
         System.out.println("Total a pagar: Q" + total);
@@ -120,7 +123,7 @@ public class RegistroVenta {
             recibido = jm.nextDouble();
             
             //Bucle mientras el usuario de un billete menos al total a pagar 
-            //Va a esta va de pedir hasta que de un mayor 
+            //avanza si billete es mayor al total
             while (recibido < total) {
                 System.out.println("Efectivo insuficiente. El total es Q" + total);
                 System.out.print("Ingrese el efectivo recibido de nuevo (Q): ");
@@ -142,9 +145,9 @@ public class RegistroVenta {
         System.out.println("=== RESUMEN DE LA VENTA ===");
         System.out.println("Cantidad de productos: " + cantidadProductos);
         System.out.println("Unidades vendidas: " + unidades);
-        System.out.println("Subtotal: Q" + subtotal);
+        System.out.println("Subtotal: Q" + subtotalgeneral);
         System.out.println("Descuento (" + porcentaje + "%): Q" + descuento);
-        System.out.println("Monto con descuento: Q" + montoConDescuento);
+        System.out.println("Monto con descuento: Q" + dineroConDescuento);
         System.out.println("IVA (12%): Q" + iva);
         System.out.println("TOTAL: Q" + total);
         System.out.println("Forma de pago: " + formaPago);
