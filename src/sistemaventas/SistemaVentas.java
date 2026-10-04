@@ -44,8 +44,8 @@ public class SistemaVentas {
             break;
     } 
     
-        } while (opcion >= 1 && opcion <= 3); 
-        }
+   } while (opcion >= 1 && opcion <= 3); 
+  }
 }
 
     

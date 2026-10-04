@@ -69,8 +69,8 @@ public class RegistroVenta {
                 cantidad = jm.nextInt();
             }
  
-            // Subtotal del producto = precio x cantidad (redondeado a 2 decimales)
-            double subtotalProducto = (int) (precio * cantidad);
+            // Subtotal del producto = precio x cantidad
+            double subtotalProducto = precio * cantidad;
             System.out.println("Agregado: [" + codigo + "] " + nombre + " -> Subtotal del producto: Q" + subtotalProducto);
  
             subtotalgeneral = subtotalgeneral + subtotalProducto;
@@ -82,17 +82,17 @@ public class RegistroVenta {
         if (subtotalgeneral >= 1000) {
             porcentaje = 0.10;
         } else if (subtotalgeneral >= 500) {
-            porcentaje = 0.8;
+            porcentaje = 0.08;
         } else if (subtotalgeneral >= 200) {
-            porcentaje = 0.5;
+            porcentaje = 0.05;
         } else {
             porcentaje = 0;
         }
  
-        double descuento = (subtotalgeneral * porcentaje);
-        double dineroConDescuento = (int) (subtotalgeneral - descuento);
-        double iva = (int) (dineroConDescuento * 0.12);
-        double total = (int) (dineroConDescuento + iva);
+        double descuento = subtotalgeneral * porcentaje;
+        double dineroConDescuento = subtotalgeneral - descuento;
+        double iva = dineroConDescuento * 0.12;
+        double total = dineroConDescuento + iva;
  
         System.out.println();
         System.out.println("Total a pagar: Q" + total);
@@ -129,7 +129,7 @@ public class RegistroVenta {
                 System.out.print("Ingrese el efectivo recibido de nuevo (Q): ");
                 recibido = jm.nextDouble();
             }
-            cambio = (int) (recibido - total);
+            cambio = recibido - total;
             
             
         } else if (pago == 2) {
