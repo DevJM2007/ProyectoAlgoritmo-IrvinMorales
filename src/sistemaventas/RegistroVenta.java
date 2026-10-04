@@ -126,7 +126,9 @@ public class RegistroVenta {
                 System.out.print("Ingrese el efectivo recibido de nuevo (Q): ");
                 recibido = jm.nextDouble();
             }
-            cambio = (int) ((recibido - total) * 100 + 0.5) / 100.0;
+            cambio = (int) (recibido - total);
+            
+            
         } else if (pago == 2) {
             formaPago = "Tarjeta";
             ventasTarjeta++;

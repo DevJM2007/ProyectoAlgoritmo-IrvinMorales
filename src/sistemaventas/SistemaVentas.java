@@ -34,10 +34,10 @@ public class SistemaVentas {
             RegistroVenta.RegisVenta();
             break;
         case 2:
-            
+            ConsultaCaja.consul();
             break;
         case 3:
-           
+            Estadisticas.estadi();
             break;
         case 4:
             System.out.println("Saliendo del programa...");
