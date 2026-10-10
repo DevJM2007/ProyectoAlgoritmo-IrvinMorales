@@ -11,7 +11,9 @@ import java.util.Scanner;
 public class ConsultaCaja {
     public static void consul(){
         Scanner jm = new Scanner (System.in);
-
+            if (RegistroVenta.ventasRealizadas == 0) {
+                System.out.println("No existen ventas registradas.");
+            }
         System.out.println("");
         System.out.println("");
         System.out.println("====RESUMEN ESTADISTICO====");
