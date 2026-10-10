@@ -40,7 +40,9 @@ public class SistemaVentas {
             Estadisticas.estadi();
             break;
         case 4:
+            System.out.println("==============================");
             System.out.println("Saliendo del programa...");
+            System.out.println("==============================");
             break;
     } 
     
